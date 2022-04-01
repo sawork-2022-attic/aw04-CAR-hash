@@ -15,5 +15,7 @@ public interface PosService {
 
     public List<Product> products();
 
+    public boolean decrease(Cart c,String productId,int amount);
+
     public Product randomProduct();
 }

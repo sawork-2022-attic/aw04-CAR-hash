@@ -48,6 +48,14 @@ public class PosServiceImp implements PosService, Serializable {
         return cart;
     }
 
+    public boolean decrease(Cart c,String productId,int amount){
+        Product product = posDB.getProduct(productId);
+        if (product == null) return false;
+
+        c.decrease(productId,amount);
+        return true;
+    }
+
     @Override
     public List<Product> products() {
         return posDB.getProducts();
