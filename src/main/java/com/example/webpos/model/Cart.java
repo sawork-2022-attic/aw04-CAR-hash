@@ -10,7 +10,6 @@ import java.util.List;
 
 @Data
 @Component
-@SessionScope
 public class Cart implements Serializable {
 
     private List<Item> items = new ArrayList<>();

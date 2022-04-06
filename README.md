@@ -133,7 +133,7 @@ backend servers
 
 #### 缓存
 
-​	给getProducts加上缓存。
+​	给getProducts加上缓存。后台的redis设置略去不谈，按https://redis.io/docs/manual/scaling/。
 
 ![image-20220401220039628](ref/image-20220401220039628.png)
 
@@ -152,3 +152,6 @@ backend servers
 ![image-20220401221730819](ref/image-20220401221730819.png)
 
 ​	最初的50次请求表现比有cache时互有优劣，OK数更少而平均响应时间更段；之后的50次可能因为有一些存在内存里的products起到了一定的缓存作用使得其响应时间下降，但比不过拥有共享缓存的上一次，平均反应时间在接近3秒。
+
+检查一下redis的内容，发现cache和session全部被保存在了7001处。
+![img.png](img.png)
